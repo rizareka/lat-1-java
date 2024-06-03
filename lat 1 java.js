@@ -1,6 +1,6 @@
 const chart5 = document.getElementById("megaChart_2");
 
-fetch("Total_Revenue_Building_Category.json")
+fetch("Total_Revenue_building_Category.json")
   .then(function (response) {
     if (response.ok == true) {
       return response.json();
