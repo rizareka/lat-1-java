@@ -1,4 +1,4 @@
-const chart5 = document.getElementById("megaChart_2");
+const chartBuildingCategory = document.getElementById("megaChart_2");
 
 fetch("Total_Revenue_building_Category.json")
   .then(function (response) {
@@ -23,29 +23,26 @@ fetch("Total_Revenue_building_Category.json")
       total_revenue: arrTotalRevenue,
       revenue_percentage: arrRevenuePercentage,
     };
-    createChart5(objChart, "bar");
+    createChartBuildingCategory(objChart, "bar");
   });
 
-function createChart5(arrPassed5, type) {
+function createChartBuildingCategory(arrPassedBuildingCategory, type) {
   let arrBgColors = [];
-  arrPassed5.total_revenue.forEach((element, index) => {
+  arrPassedBuildingCategory.total_revenue.forEach((element, index) => {
     arrBgColors.push(
-      `rgba(47, 160, 215, 0.8)`
-      //`rgba(${Math.floor(Math.random()*256),}, ${Math.floor(
-        //Math.random() * 256
-      //)}, ${Math.floor(Math.random() * 256)}, 0.8)`
+      `rgba(47, 160, 215, 0.5)`
     );
   });
 
-  window.megaChart2Sort = new Chart(chart5, {
+  window.megaChart2Sort = new Chart(chartBuildingCategory, {
     type: "bar",
     plugins: [ChartDataLabels],
     data: {
-      labels: arrPassed5.building_class_category,
+      labels: arrPassedBuildingCategory.building_class_category,
       datasets: [
         {
           label: "Total Revenue",
-          data: arrPassed5.total_revenue,
+          data: arrPassedBuildingCategory.total_revenue,
           borderColor: "rgb(0, 0, 255)",
           backgroundColor: arrBgColors,
           borderWidth: 1,
